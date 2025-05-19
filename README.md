@@ -87,7 +87,32 @@ For this task I decided to look at the market trend as the avg. pct. growth over
 
 ## Question 4
 
+### Sub Question 1
+For identifying the best performing agent each, the won, lost and total cases are queried for allong with the win frequency and avg. resolve time. 
 
+As can be seen in the table below user_1 is the agent with te highest win frequency, but is also $\approx 10$ days slower than user_2 who almost achieves the same win frequency.  
+
+|assigned_to|won_cases_count|lost_cases_count|total_cases_count|win_frequency|avg_resolve_time             |
+|-----------|---------------|----------------|-----------------|-------------|-----------------------------|
+|user_3     |8              |7               |20               |0.40         |1 mon 6 days 10:49:04.674261 |
+|user_1     |10             |4               |21               |0.48         |1 mon 14 days 14:13:19.001284|
+|user_2     |9              |7               |20               |0.45         |1 mon 4 days 14:44:58.105442 |
+
+
+### Sub Question 2
+For the next table, we identify how the agents have performed over time. From the table below it is evident that user_1 regardning the win frequency, is generally stable around the 0.5 mark over the past 3 months. user_2 on the other hand has dropped quite significantly in win frequency, while user three has seen a great improvement. This is also a great insight regarding the top table, as it shows that user three could be expected to also stabilize around the 0.5 mark over the comming months (this could indicate user_3 could be a new agent).
+
+|assigned_to|month_year|won_cases|lost_cases|total_cases|win_frequency|avg_resolve_time             |
+|-----------|----------|---------|----------|-----------|-------------|-----------------------------|
+|user_1     |01-2024   |4        |2         |10         |0.40         |1 mon 15 days 23:29:09.16925 |
+|user_1     |02-2024   |3        |1         |5          |0.60         |1 mon 27 days 19:15:06.698532|
+|user_1     |03-2024   |3        |1         |6          |0.50         |29 days 07:17:46.052087      |
+|user_2     |01-2024   |4        |2         |6          |0.67         |1 mon 10 days 08:47:56.734037|
+|user_2     |02-2024   |3        |3         |9          |0.33         |1 mon 1 day 22:46:39.098072  |
+|user_2     |03-2024   |2        |2         |5          |0.40         |29 days 23:37:58.673606      |
+|user_3     |01-2024   |1        |2         |4          |0.25         |1 mon 2 days 19:03:17.708152 |
+|user_3     |02-2024   |2        |3         |7          |0.29         |1 mon 13 days 12:20:44.622802|
+|user_3     |03-2024   |5        |2         |9          |0.56         |1 mon 2 days 23:20:21.982207 |
 
 
 
