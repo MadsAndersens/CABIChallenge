@@ -4,7 +4,9 @@
  ## Question 1
 
  ### Sub question 1
- Avg. resolution time is 1 month and 8 days (rounded down to days)
+ Avg. resolution time is 1 month and 8 days (rounded down to days). 
+
+ I added the following boxplot to display the distribution of the resolve time in days, since the avg. does not quite communicate the variations that can be expected. 
  ![Alt text](Figures/CloseTimeDist.png)
 
  ### Sub question 2
