@@ -33,7 +33,7 @@
  
 $$\text{EWA} = \frac{\sum_{i=1}^n x_i \cdot e^{-\lambda (i - 1)}}{\sum_{i=1}^n e^{-\lambda (i - 1)}}$$
 
-Where we set $\alpha=0.5$ for this case
+Where we set $\alpha=0.5$ for this case, $x_i$ is the case value for the corresponding rank $i$
 
 |client_id|client_name   |weighted_avg_case_value|
 |---------|--------------|-----------------------|
