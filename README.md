@@ -55,6 +55,7 @@ Where we set $\alpha=0.5$ for this case, $x_i$ is the case value for the corresp
 ## Question 3
 For this task I decided to look at the market trend as the avg. pct. growth over the period for each market and for each status. This should provide value as to which markets have been growing in revenue based on the value. It is calculated by grouping by each year-month and then summing the value for each month. Then for each month the pct. difference from the previous month is calculated, lastly these are then aggregated in to single averages for each market and status. The same is done for the number cases. 
 
+** Note ** if the total cases is 1 then the pct. growth will also be NULL since there is nothing to compare against. 
 
 |market     |status|avg_monthly_pct_growth_value|avg_monthly_pct_growth_count|total_cases|
 |-----------|------|----------------------------|----------------------------|-----------|
