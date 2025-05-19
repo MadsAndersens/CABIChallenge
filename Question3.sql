@@ -25,7 +25,8 @@ monthly_growth AS (
         mc.month_year,
 		mc.case_count,
         mc.total_case_value,
-        LAG(mc.total_case_value) OVER (PARTITION BY mc.market, mc.status ORDER BY mc.month_year) AS prev_case_value
+        LAG(mc.total_case_value) OVER (PARTITION BY mc.market, mc.status ORDER BY mc.month_year) AS prev_case_value,
+		LAG(mc.case_count) OVER (PARTITION BY mc.market, mc.status ORDER BY mc.month_year) AS prev_case_count
     FROM monthly_counts mc
 ),
 growth_pct AS (
@@ -40,13 +41,19 @@ growth_pct AS (
             WHEN prev_case_value > 0 THEN 
                 (total_case_value - prev_case_value) * 100.0 / prev_case_value
             ELSE NULL
-        END AS pct_growth
+        END AS pct_growth_case_value,
+		CASE 
+            WHEN prev_case_count > 0 THEN 
+                (case_count - prev_case_count) * 100.0 / prev_case_count
+            ELSE NULL
+        END AS pct_growth_case_count
     FROM monthly_growth
 )
 SELECT 
     market,
     status,
-    AVG(pct_growth) AS avg_monthly_pct_growth,
+    AVG(pct_growth_case_value) AS avg_monthly_pct_growth_value,
+	AVG(pct_growth_case_count) AS avg_monthly_pct_growth_count,
 	SUM(case_count) as total_cases
 FROM growth_pct
 GROUP BY market, status
@@ -57,13 +64,67 @@ ORDER BY market, status;
 
 
 -- Over time growth for visual analysis
-
-with created_month_year as(
-	select 
-		case_id,
-		TO_CHAR(creation_date, 'MM-YYYY') AS month_year
-	from cases
+WITH created_month_year AS (
+    SELECT 
+        case_id,
+        market,
+        status,
+		case_value,
+        TO_CHAR(creation_date, 'MM-YYYY') AS month_year
+    FROM cases
 ),
+monthly_counts AS (
+    SELECT 
+        market,
+        status,
+        month_year,
+		count(*) as case_count,
+        sum(case_value) AS total_case_value
+    FROM created_month_year
+    GROUP BY market, status, month_year
+),
+monthly_growth AS (
+    SELECT 
+        mc.market,
+        mc.status,
+        mc.month_year,
+		mc.case_count,
+        mc.total_case_value,
+        LAG(mc.total_case_value) OVER (PARTITION BY mc.market, mc.status ORDER BY mc.month_year) AS prev_case_value,
+		LAG(mc.case_count) OVER (PARTITION BY mc.market, mc.status ORDER BY mc.month_year) AS prev_case_count
+    FROM monthly_counts mc
+),
+growth_pct AS (
+    SELECT 
+        market,
+        status,
+        month_year,
+		case_count,
+        total_case_value,
+        prev_case_value,
+        CASE 
+            WHEN prev_case_value > 0 THEN 
+                (total_case_value - prev_case_value) * 100.0 / prev_case_value
+            ELSE NULL
+        END AS pct_growth_case_value,
+		CASE 
+            WHEN prev_case_count > 0 THEN 
+                (case_count - prev_case_count) * 100.0 / prev_case_count
+            ELSE NULL
+        END AS pct_growth_case_count
+    FROM monthly_growth
+)
+SELECT 
+    market,
+    status,
+	month_year,
+    pct_growth_case_value,
+	pct_growth_case_count,
+	case_count
+FROM growth_pct
+ORDER BY market,month_year, status;
+
+
 
 
 
