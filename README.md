@@ -5,7 +5,7 @@
 
  ### Sub question 1
  Avg. resolution time is 1 month and 8 days (rounded down to days)
- ![Alt text](Figures/CloseTimeDist.png.png)
+ ![Alt text](Figures/CloseTimeDist.png)
 
  ### Sub question 2
  The Max Case cost of a won case is 4700, however these vary greatly depending on the market as seen in the visualization
