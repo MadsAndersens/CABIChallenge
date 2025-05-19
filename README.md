@@ -14,9 +14,11 @@
 
  ![Alt text](Figures/MaxCaseVal.png)
 
- ## Question 2
+## Question 2
 
- ### Sub question 1
+### Sub question 1
+The following table is the clients sorted into their cltv groups with the life time values. The SQL code uses a ``NTILE(3)`` window function to assign groups for each of the clients based on their value. See ``Question3.sql``. 
+ 
 |client_id|client_name   |client_value|cltv_group|
 |---------|--------------|------------|----------|
 |C100     |Belgu         |19200       |High      |
@@ -40,7 +42,9 @@ The formula for doing so is given by:
  
 $$\text{EWA} = \frac{\sum_{i=1}^n x_i \cdot e^{-\lambda (i - 1)}}{\sum_{i=1}^n e^{-\lambda (i - 1)}}$$
 
-Where we set $\alpha=0.5$ for this case, $x_i$ is the case value for the corresponding rank $i$
+Where we set $\alpha=0.5$ for this case, $x_i$ is the case value for the corresponding rank $i$.
+
+With SQL the i is obtained bythis is achieved by using ``rank()`` window function partioned by ``client_id`` and ordered by ``occured_at`` from the won cases table. 
 
 |client_id|client_name   |weighted_avg_case_value|
 |---------|--------------|-----------------------|
