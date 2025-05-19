@@ -29,7 +29,9 @@
 
  
  ### Sub question 2
- The exponential weighted average for each of the clients are calculated for each of the clients. This ensures that the value of the most recent case is weighted higher than the older ones. The formula for doing so is given by: 
+ The exponential weighted average for each of the clients are calculated for each of the clients. This ensures that the value of the most recent case is weighted higher than the older ones, this would most likely be more usefull from a business context, as I assume clients budgets and demands are heavily temporal. 
+ 
+The formula for doing so is given by: 
  
 $$\text{EWA} = \frac{\sum_{i=1}^n x_i \cdot e^{-\lambda (i - 1)}}{\sum_{i=1}^n e^{-\lambda (i - 1)}}$$
 
