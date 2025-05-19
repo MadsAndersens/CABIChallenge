@@ -53,6 +53,39 @@ Where we set $\alpha=0.5$ for this case, $x_i$ is the case value for the corresp
 |C108     |Photo-Newsy   |2324.49                |
 
 ## Question 3
+For this task I decided to look at the market trend as the avg. pct. growth over the period for each market and for each status. This should provide value as to which markets have been growing in revenue based on the value. It is calculated by grouping by each year-month and then summing the value for each month. Then for each month the pct. difference from the previous month is calculated, lastly these are then aggregated in to single averages for each market and status. The same is done for the number cases. 
+
+
+|market     |status|avg_monthly_pct_growth_value|avg_monthly_pct_growth_count|total_cases|
+|-----------|------|----------------------------|----------------------------|-----------|
+|Belgium    |Lost  |-46.0                       |-50.0                       |3          |
+|Belgium    |Open  |-8.6                        |-25.0                       |4          |
+|Belgium    |Won   |35.4                        |62.5                        |8          |
+|France     |Lost  |NULL                        |NULL                        |1          |
+|France     |Open  |6.5                         |0.0                         |2          |
+|France     |Won   |0.2                         |0.0                         |3          |
+|Germany    |Lost  |NULL                        |NULL                        |1          |
+|Germany    |Open  |7.4                         |0.0                         |2          |
+|Germany    |Won   |-1.7                        |0.0                         |3          |
+|Italy      |Lost  |-2.0                        |0.0                         |2          |
+|Italy      |Open  |NULL                        |NULL                        |1          |
+|Italy      |Won   |8.3                         |0.0                         |2          |
+|Netherlands|Lost  |-20.9                       |-33.3                       |5          |
+|Netherlands|Open  |NULL                        |NULL                        |2          |
+|Netherlands|Won   |-49.3                       |-50.0                       |3          |
+|Spain      |Lost  |0.0                         |0.0                         |2          |
+|Spain      |Open  |NULL                        |NULL                        |1          |
+|Spain      |Won   |0.0                         |0.0                         |2          |
+|UK         |Lost  |90.2                        |100.0                       |3          |
+|UK         |Open  |93.8                        |100.0                       |3          |
+|UK         |Won   |48.9                        |50.0                        |4          |
+|US         |Lost  |NULL                        |NULL                        |1          |
+|US         |Open  |NULL                        |NULL                        |1          |
+|US         |Won   |4.4                         |0.0                         |2          |
+
+
+## Question 4
+
 
 
 
