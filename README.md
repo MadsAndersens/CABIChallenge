@@ -1,5 +1,6 @@
 # CABIChallenge
 
+The SQL code for the questions can be found in the folder: ``SQLCodeAnswers``
 
  ## Question 1 - Case insights
 
