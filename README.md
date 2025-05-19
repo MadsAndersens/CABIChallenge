@@ -124,6 +124,10 @@ For the next table, we identify how the agents have performed over time. From th
 |user_3     |02-2024   |2        |3         |7          |0.29         |1 mon 13 days 12:20:44.622802|
 |user_3     |03-2024   |5        |2         |9          |0.56         |1 mon 2 days 23:20:21.982207 |
 
+This is visulized in the Figure belowe: 
+
+ ![Alt text](Figures/AgentPlot.png.png)
+
 
 
 
