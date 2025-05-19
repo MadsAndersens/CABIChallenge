@@ -1,20 +1,25 @@
 # CABIChallenge
 
+The SQL code for the questions can be found in the folder: ``SQLCodeAnswers``
 
- ## Question 1
+ ## Question 1 - Case insights
 
- ### Sub question 1
- Avg. resolution time is 1 month and 8 days (rounded down to days)
- ![Alt text](Figures/CloseTimeDist.png.png)
+ ### Sub question 1 
+ Avg. resolution time is 1 month and 8 days (rounded down to days). 
 
- ### Sub question 2
+ I added the following boxplot to display the distribution of the resolve time in days, since the avg. does not quite communicate the variations that can be expected. 
+ ![Alt text](Figures/CloseTimeDist.png)
+
+ ### Sub question 2 
  The Max Case cost of a won case is 4700, however these vary greatly depending on the market as seen in the visualization
 
  ![Alt text](Figures/MaxCaseVal.png)
 
- ## Question 2
+## Question 2 - Client insights
 
- ### Sub question 1
+### Sub question 1
+The following table is the clients sorted into their cltv groups with the life time values. The SQL code uses a ``NTILE(3)`` window function to assign groups for each of the clients based on their value. See ``SQLCodeAnswers/Question3.sql``. 
+ 
 |client_id|client_name   |client_value|cltv_group|
 |---------|--------------|------------|----------|
 |C100     |Belgu         |19200       |High      |
@@ -38,7 +43,9 @@ The formula for doing so is given by:
  
 $$\text{EWA} = \frac{\sum_{i=1}^n x_i \cdot e^{-\lambda (i - 1)}}{\sum_{i=1}^n e^{-\lambda (i - 1)}}$$
 
-Where we set $\alpha=0.5$ for this case, $x_i$ is the case value for the corresponding rank $i$
+Where we set $\alpha=0.5$ for this case, $x_i$ is the case value for the corresponding rank $i$.
+
+With SQL the i is obtained bythis is achieved by using ``rank()`` window function partioned by ``client_id`` and ordered by ``occured_at`` from the won cases table. 
 
 |client_id|client_name   |weighted_avg_case_value|
 |---------|--------------|-----------------------|
@@ -55,7 +62,7 @@ Where we set $\alpha=0.5$ for this case, $x_i$ is the case value for the corresp
 |C106     |AN-SAW        |2524.49                |
 |C108     |Photo-Newsy   |2324.49                |
 
-## Question 3
+## Question 3 - Market insights
 For this task I decided to look at the market trend as the avg. pct. growth over the period for each market and for each status. This should provide value as to which markets have been growing in revenue based on the value. It is calculated by grouping by each year-month and then summing the value for each month. Then for each month the pct. difference from the previous month is calculated, lastly these are then aggregated in to single averages for each market and status. The same is done for the number cases. 
 
 ** Note ** if the total cases is 1 then the pct. growth will also be NULL since there is nothing to compare against. 
@@ -88,7 +95,7 @@ For this task I decided to look at the market trend as the avg. pct. growth over
 |US         |Won   |4.4                         |0.0                         |2          |
 
 
-## Question 4
+## Question 4 - Agent (User) insights
 
 ### Sub Question 1
 For identifying the best performing agent each, the won, lost and total cases are queried for allong with the win frequency and avg. resolve time. 
