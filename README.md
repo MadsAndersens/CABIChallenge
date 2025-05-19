@@ -28,3 +28,37 @@
 |C107     |E-PAW         |3250        |Low       |
 
  
+ ### Sub question 2
+ The exponential weighted average for each of the clients are calculated for each of the clients. This ensures that the value of the most recent case is weighted higher than the older ones. The formula for doing so is given by: 
+$$
+\text{EWA} = \frac{\sum_{i=1}^n x_i \cdot e^{-\lambda (i - 1)}}{\sum_{i=1}^n e^{-\lambda (i - 1)}}
+$$
+
+Where we set $\alpha=0.5$ for this case
+
+|client_id|client_name   |weighted_avg_case_value|
+|---------|--------------|-----------------------|
+|C111     |Gett-E        |4624.49                |
+|C104     |PA-tato       |4200.00                |
+|C110     |Routers       |3987.75                |
+|C100     |Belgu         |3788.07                |
+|C101     |NPC           |3600.00                |
+|C109     |NPC-Freelancey|3500.00                |
+|C102     |AFK           |3338.56                |
+|C105     |EFFES         |3300.00                |
+|C107     |E-PAW         |3250.00                |
+|C103     |D-PAH         |2850.65                |
+|C106     |AN-SAW        |2524.49                |
+|C108     |Photo-Newsy   |2324.49                |
+
+## Question 3
+
+
+
+
+
+
+
+
+
+ 
