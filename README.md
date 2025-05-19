@@ -126,7 +126,7 @@ For the next table, we identify how the agents have performed over time. From th
 
 This is visulized in the Figure belowe: 
 
- ![Alt text](Figures/AgentPlot.png.png)
+ ![Alt text](Figures/AgentPlot.png)
 
 
 
