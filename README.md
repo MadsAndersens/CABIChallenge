@@ -17,7 +17,7 @@
 ## Question 2
 
 ### Sub question 1
-The following table is the clients sorted into their cltv groups with the life time values. The SQL code uses a ``NTILE(3)`` window function to assign groups for each of the clients based on their value. See ``Question3.sql``. 
+The following table is the clients sorted into their cltv groups with the life time values. The SQL code uses a ``NTILE(3)`` window function to assign groups for each of the clients based on their value. See ``SQLCodeAnswers/Question3.sql``. 
  
 |client_id|client_name   |client_value|cltv_group|
 |---------|--------------|------------|----------|
